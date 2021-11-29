@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: httpserver
+  template:
+    metadata:
+      labels:
+        name: httpserver
+    spec:
+      containers:
+        - name: httpserver
+          image: lin441522/httpserver:v2
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8000
+            initialDelaySeconds: 20
+            periodSeconds: 15
+          resources:
+            requests:
+              memory: 50Mi
+            limits:
+              memory: 100Mi 
+---
