@@ -6,11 +6,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      name: httpserver
+      app: httpserver
   template:
     metadata:
       labels:
-        name: httpserver
+        app: httpserver
     spec:
       containers:
         - name: httpserver
