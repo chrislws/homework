@@ -9,5 +9,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: httpserver
+    app: httpserver-service
 
