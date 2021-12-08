@@ -13,7 +13,7 @@ import (
 	
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 
-	"https://github.com/chrislws/homework/httpserver"
+	"github.com/chrislws/homework/httpserver"
 )
 
 func HttpServer() {
