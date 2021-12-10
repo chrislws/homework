@@ -8,8 +8,6 @@ import (
 	"os/signal"
 	"syscall"
 	"time"
-
-	"github.com/sai/class4/handler"
 	
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 
@@ -22,7 +20,7 @@ func HttpServer() {
 	// register routings
 	mux.HandleFunc("/", handler.Index)
 	mux.HandleFunc("/healthz", handler.Healthz)
-	mux.HandleFunc("/metris",promhttp.Handler())
+	mux.HandleFunc("/metrics",promhttp.Handler())
 	serv := &http.Server{
 		Addr:    "0.0.0.0:8000",
 		Handler: mux,
@@ -46,3 +44,14 @@ func HttpServer() {
 	}
 	log.Println("server shutdown successfully")
 }
+func randInt(min int, max int) int {
+        rand.Seed(time.Now().UTC().UnixNano())
+        return min + rand.Intn(max-min)
+}
+
+func rootHandler(w http.ResponseWriter, r *http.Request)
+    timer := metrics.NewTimer()
+    defer timer.ObserveTotal()
+    user  := r.URL.Query().Get("user")
+    delay := randInt("10","2000)
+    time.Sleep(time.Millisecond*time.Duration(delay))
