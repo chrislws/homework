@@ -22,7 +22,7 @@ func HttpServer() {
 	mux.HandleFunc("/healthz", handler.Healthz)
 	mux.HandleFunc("/metrics",promhttp.Handler())
 	serv := &http.Server{
-		Addr:    "0.0.0.0:8000",
+		Addr:    "0.0.0.0:80",
 		Handler: mux,
 	}
 	// start http server with gorouting
