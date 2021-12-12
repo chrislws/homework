@@ -1,3 +1,4 @@
 
-第一张PNG图为prometheus获取meterics指标
+第一张PNG图为prometheus获取meterics指标。
+
 httpserver.yaml为创建pod及svc
