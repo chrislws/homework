@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: httpserver-k8s
+  namespace: monitoring
+  labels:
+    app: httpserver
+spec:
+  jobLabel: httpserver
+  endpoints:
+  - port: httpserver
+    interval: 30s
+    scheme: http
+  selector:
+    matchLabels:
+      app: httpserver
+  namespaceSelector:
+    matchNames:
+    - monitoring

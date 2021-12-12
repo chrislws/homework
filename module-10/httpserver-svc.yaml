@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: httpserver-svc
+  namespace: monitoring
+  labels:
+    app: httpserver
+spec:
+  type: NodePort
+  ports:
+  - name: httpserver
+    port: 80
+    targetPort: 80
+  selector:
+    app: httpserver
